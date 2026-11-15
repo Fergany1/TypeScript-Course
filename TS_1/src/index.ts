@@ -17,7 +17,6 @@ console.log("User before initialization:", user);
 user = {
     name: 'Ahmed',
     age: 30,
-    isStudent: true
 };
 
 // user after initialization
