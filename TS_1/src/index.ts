@@ -8,21 +8,59 @@
 // ];
 // console.log(person);
 
-let user = {name: string , age: number} | undefined;
+// --------------------------------------------------------------------
 
-// user before initialization
-console.log("User before initialization:", user);
+// let user :{name: string , age: number} | null = null;
+
+// // user before initialization
+// console.log("User before initialization:", user);
 
 
-user = {
-    name: 'Ahmed',
-    age: 30,
-};
+// user = {
+//     name: 'Ahmed',
+//     age: 30,
+// };
 
-// user after initialization
-console.log(user);
+// // user after initialization
+// console.log("User after initialization:", user);
 
-user = undefined;
+// user = null;
 
-// user after reassigning to undefined
-console.log("User after reassigning to undefined:", user);
+// // user after reassigning to null
+// console.log("User after reassigning to null:", user);
+
+// --------------------------------------------------------------------
+
+// let user :| unknown = JSON.parse('{"name": "Ahmed", "age": "30"}');
+
+// if ( typeof user === 'object' && user !== null && 'name' in user && 'age' in user)  {
+//     console.log("User is an object:", user);
+// }
+// else {
+//     console.log("User is not an object:", user); 
+// }   
+// --------------------------------------------------------------------
+type User = {
+    name:string,
+    age:number,
+}
+
+// function isValidUser(user: User): User{
+//     if( user.name === "Amr"){
+//         return user;
+//     }
+
+//     throw new Error("Invalid user");
+// }
+// function isValidUser(user: User){
+//     if(!user.name === "Amr"): void{
+//         console.log("Invalid user");
+//     }
+//     return user;
+
+// }
+
+// let user: User = isValidUser({name: "Amr", age: 30});
+// let user2: User = isValidUser({name: "Ahmed", age: 30});
+// console.log(user)
+// console.log(user2)
