@@ -40,10 +40,10 @@
 //     console.log("User is not an object:", user); 
 // }   
 // --------------------------------------------------------------------
-type User = {
-    name:string,
-    age:number,
-}
+// type User = {
+//     name:string,
+//     age:number,
+// }
 
 // function isValidUser(user: User): User{
 //     if( user.name === "Amr"){
@@ -64,3 +64,26 @@ type User = {
 // let user2: User = isValidUser({name: "Ahmed", age: 30});
 // console.log(user)
 // console.log(user2)
+
+//-------------------------------------------------------------------
+// User Object
+type User = {
+    name: string,
+    age: number
+}
+
+// Status Num
+type Status =  200 | 400
+
+type ApiResponse = {data: User | null , status: Status }
+
+function validResponse(response: ApiResponse){
+    if (response.status === 200){
+        return response.data
+    }
+    
+    throw new Error(`ERROR STATUS ${response.status}`);
+}
+
+const user = validResponse({data: {name: 'Amr' , age: 40} , status: 400})
+console.log(user)
