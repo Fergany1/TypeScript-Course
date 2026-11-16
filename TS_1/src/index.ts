@@ -79,11 +79,12 @@ type ApiResponse = {data: User | null , status: Status }
 
 function validResponse(response: ApiResponse){
     if (response.status === 200){
+        console.log('Valid User Data => ' , response.data)
         return response.data
     }
     
     throw new Error(`ERROR STATUS ${response.status}`);
 }
 
-const user = validResponse({data: {name: 'Amr' , age: 40} , status: 400})
+const user = validResponse({data: {name: 'Amr' , age: 40} , status: 200});
 console.log(user)
