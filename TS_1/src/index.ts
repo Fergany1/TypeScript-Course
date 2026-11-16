@@ -67,24 +67,47 @@
 
 //-------------------------------------------------------------------
 // User Object
-type User = {
+// type User = {
+    //     name: string,
+    //     age: number
+// }
+
+// // Status Num
+// type Status =  200 | 400
+
+// type ApiResponse = {data: User | null , status: Status }
+
+// function validResponse(response: ApiResponse){
+//     if (response.status === 200){
+//         console.log('Valid User Data => ' , response.data)
+//         return response.data
+//     }
+    
+//     throw new Error(`ERROR STATUS ${response.status}`);
+// }
+
+// const user = validResponse({data: {name: 'Amr' , age: 40} , status: 200});
+// console.log(user)
+
+//-------------------------------------------------------------------
+
+// InterFace and Types
+
+interface UserAbstract {
     name: string,
     age: number
 }
 
-// Status Num
-type Status =  200 | 400
+class User implements UserAbstract {
+    name: string
+    age: number
 
-type ApiResponse = {data: User | null , status: Status }
-
-function validResponse(response: ApiResponse){
-    if (response.status === 200){
-        console.log('Valid User Data => ' , response.data)
-        return response.data
+    constructor(name: string, age: number){
+        this.name = name;
+        this.age = age;
     }
-    
-    throw new Error(`ERROR STATUS ${response.status}`);
 }
 
-const user = validResponse({data: {name: 'Amr' , age: 40} , status: 200});
-console.log(user)
+
+const user = new User('Ahmed', 30);
+console.log(user);
