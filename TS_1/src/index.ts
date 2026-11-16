@@ -93,21 +93,56 @@
 
 // InterFace and Types
 
-interface UserAbstract {
+// interface UserAbstract {
+//     name: string,
+//     age: number
+// }
+
+// class User implements UserAbstract {
+//     name: string
+//     age: number
+
+//     constructor(name: string, age: number){
+//         this.name = name;
+//         this.age = age;
+//     }
+// }
+
+
+// const user = new User('Ahmed', 30);
+// console.log(user);
+
+//-----------------------------------------------------
+
+enum Role {
+    ADMIN = 'ADMIN',
+    USER = 'USER',
+    GUEST = 'GUEST'
+};
+
+type User = {
     name: string,
-    age: number
+    age: number,
+    role: Role
 }
 
-class User implements UserAbstract {
-    name: string
-    age: number
+function getRole(name: string , age: number): User {
+    return {name , age, role: Role.ADMIN}
+} 
 
-    constructor(name: string, age: number){
-        this.name = name;
-        this.age = age;
+const user = getRole('Ahmed', 30);
+
+if(user.role === Role.ADMIN){
+    console.log('User is an Admin');
+}
+
+function getRoleSwitch(role: Role): string {
+    switch(role) {
+        case Role.ADMIN:
+            return 'Admin';
+        case Role.USER:
+            return 'User';
+        case Role.GUEST:
+            return 'Guest';
     }
 }
-
-
-const user = new User('Ahmed', 30);
-console.log(user);
